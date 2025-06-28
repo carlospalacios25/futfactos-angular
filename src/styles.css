@@ -1,1 +1,97 @@
 /* You can add global styles to this file, and also import other style files */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colores inspirados en el fútbol */
+  --grass-green: #2d5016;
+  --field-green: #4a7c59;
+  --light-green: #7fb069;
+  --ball-white: #ffffff;
+  --line-white: #f8f9fa;
+  --goal-yellow: #ffd60a;
+  --referee-black: #1a1a1a;
+  --sky-blue: #219ebc;
+  --stadium-gray: #495057;
+  --victory-gold: #ffb700;
+
+  /* Gradientes temáticos */
+  --field-gradient: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #7fb069 100%);
+  --stadium-gradient: linear-gradient(135deg, #495057 0%, #343a40 100%);
+  --gold-gradient: linear-gradient(135deg, #ffb700 0%, #ffd60a 100%);
+
+  /* Sombras */
+  --shadow-field: 0 4px 20px rgba(45, 80, 22, 0.3);
+  --shadow-ball: 0 8px 25px rgba(0, 0, 0, 0.2);
+  --shadow-stadium: 0 12px 40px rgba(0, 0, 0, 0.4);
+
+  --border-radius: 15px;
+  --transition: all 0.3s ease;
+}
+
+/* Tipografía deportiva */
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  line-height: 1.6;
+  color: var(--referee-black);
+  background:
+    radial-gradient(circle at 20% 80%, rgba(125, 176, 105, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(74, 124, 89, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(90deg, transparent 49%, rgba(74, 124, 89, 0.05) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(74, 124, 89, 0.05) 50%, transparent 51%);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Navbar estilo estadio */
+.navbar {
+  background: var(--ball-white);
+  box-shadow: 0 2px 15px rgba(45, 80, 22, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--field-green);
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--field-gradient);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
